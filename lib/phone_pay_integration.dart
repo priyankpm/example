@@ -16,7 +16,7 @@ import 'package:uuid/uuid.dart';
 
 // <meta-data android:name="com.phonepe.android.sdk.isUAT" android:value="true"/>
 // <meta-data android:name="com.phonepe.android.sdk.isSimulator" android:value="true"/>
-// <meta-data android:name="com.phonepe.android.sdk.MerchantId" android:value="${merchantId(je hoy e nakhvani)}"/>
+// <meta-data android:name="com.phonepe.android.sdk.MerchantId" android:value="merchantId(je hoy e nakhvani)"/>
 
 /// BUILD GRADLE (PROJECT)
 /// In allprojects part
@@ -33,8 +33,8 @@ class PaymentController extends GetxController {
   ///Phonepe SDK
   String environment = "SANDBOX";
   String appId = "";
-  String merchantId = "PGTESTPAYUAT";
-  String saltKey = "099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
+  String merchantId = "merchantId NAKHVANI";
+  String saltKey = "SALT KEY NAKHVANI";
   String saltIndex = "1";
   String callbackUrl = "https://webhook.site/callback-url";
   String type = "";
@@ -54,9 +54,9 @@ class PaymentController extends GetxController {
     final requestData = {
       "merchantId": merchantId,
       "merchantTransactionId": merchantTransactionId,
-      // "merchantUserId": PreferenceManager.getQuickId() ?? userId,
-      "amount": num.parse('${int.parse(amount.toString()) * 100}'),
-      "mobileNumber": "9453675367",
+      // "merchantUserId": DYNAMIC ID HOVI JOIYE,
+      "amount": AMOUNT,
+      "mobileNumber": "MOBILE NO",
       "deviceContext": {"deviceOS": Platform.isAndroid ? "ANDROID" : "IOS"},
       "redirectUrl": callbackUrl,
       "redirectMode": "REDIRECT",
@@ -123,6 +123,8 @@ class PaymentController extends GetxController {
 
   checkStatus() async {
     try {
+
+      /// TESTING URL CHE PRODUCTION MA CHANGE THASHE 
       String url =
           "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/status/$merchantId/$merchantTransactionId"; //Test
 
